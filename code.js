@@ -20,7 +20,7 @@ function mergesort(array) {
                     leftStartingIndex = leftStartingIndex + 1;
                 } else {
                     const temp = array[rightStartingIndex];
-                    let index = rightStartingIndex
+                    let index = rightStartingIndex;
 
                     // Shift everything to the right
                     while (index > leftStartingIndex) {
