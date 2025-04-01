@@ -1,5 +1,4 @@
 function mergesort(array) {
-    const sorted = new Array(array.length);
     const length = array.length;
 
     for (let section_length = 1; section_length < length; section_length *= 2) {
@@ -14,42 +13,27 @@ function mergesort(array) {
             // Right subarray = array[mid] - array[end - 1]
             let leftStartingIndex = start;
             let rightStartingIndex = mid;
-            let tempIndex = start;
 
             // If elements in left AND right subarrays
-            while (leftStartingIndex < mid && rightStartingIndex < end) {
+            while (leftStartingIndex < rightStartingIndex && rightStartingIndex < end) {
                 if (array[leftStartingIndex] <= array[rightStartingIndex]) {
-                    sorted[tempIndex] = array[leftStartingIndex];
-
-                    tempIndex = tempIndex + 1;
                     leftStartingIndex = leftStartingIndex + 1;
                 } else {
-                    sorted[tempIndex] = array[rightStartingIndex];
+                    const temp = array[rightStartingIndex];
+                    let index = rightStartingIndex
 
-                    tempIndex = tempIndex + 1;
+                    // Shift everything to the right
+                    while (index > leftStartingIndex) {
+                        array[index] = array[index - 1];
+                        index = index - 1;
+                    }
+
+                    array[leftStartingIndex] = temp;
+
+                    // Update all indicies to shuffle along to the right
+                    leftStartingIndex = leftStartingIndex + 1;
                     rightStartingIndex = rightStartingIndex + 1;
                 }
-            }
-
-            // Remaining elements in left subarray
-            while (leftStartingIndex < mid) {
-                sorted[tempIndex] = array[leftStartingIndex];
-
-                tempIndex = tempIndex + 1;
-                leftStartingIndex = leftStartingIndex + 1;
-            }
-
-            // Copy remaining elements from right subarray
-            while (rightStartingIndex < end) {
-                sorted[tempIndex] = array[rightStartingIndex];
-
-                tempIndex = tempIndex + 1;
-                rightStartingIndex = rightStartingIndex + 1;
-            }
-
-            // Merge
-            for (let i = start; i < end; i++) {
-                array[i] = sorted[i];
             }
         }
     }

@@ -23,11 +23,7 @@ The second inner loop divides the array into 2 sections of `section_length`. Pro
 
 $O(n)$
 
-Comparisons: Line 30 `while (leftStartingIndex < mid && rightStartingIndex < end)` and the following other `while` blocks allows for each element in the subarrays to be iterated over, and since each iteration merges the subarrays once, each element of the entire array is copied exactly once per outer loop iteration.
-
-$O(n)$
-
-Memory Allocation: Line 2 `const sorted = new Array(array.length);` explicitly defines the length of the sorted array as `array.length`:
+Comparisons: Line 18 `while (leftStartingIndex < rightStartingIndex && rightStartingIndex < end)` allows for each element in the subarrays to be iterated over sequentially.
 
 $O(n)$
 
