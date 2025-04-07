@@ -27,11 +27,20 @@ Comparisons: Line 18 `while (leftStartingIndex < rightStartingIndex && rightStar
 
 $O(n)$
 
+Shifting Overhead: If worst case where input is a perfectly reverse sorted input, this can result in $O(n)$ comparison operations per merge:
+
+$O(n^2)$
+
+
 Overall:
 
-$O(n) * O(log_2(n)) \ \rightarrow \ \Theta(n * log_2(n))$
+Best case (already sorted input): $\Theta(n*log(n))$
 
-Since the top level loop's runtime is logarithmic, this means that the Best, Average, and Worst Case are all $\Theta(n * log_2(n))$
+Average case (slower than normal merge sort because of in-place overhead): $O(n*log (n))$
+
+Worst case (reverse sorted input): $O(n^2)$
+
+Space Complexity: $O(1)$ since in place
 
 - Referenced https://www.geeksforgeeks.org/merge-sort/?ref=header_outind for writing merge sort algorithm without recursion, and for reminder on how merge sort works.
 
