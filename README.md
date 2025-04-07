@@ -27,10 +27,14 @@ Comparisons: Line 18 `while (leftStartingIndex < rightStartingIndex && rightStar
 
 $O(n)$
 
-Shifting Overhead: If worst case where input is a perfectly reverse sorted input, this can result in $O(n)$ comparison operations per merge:
+Shifting Overhead: If worst case where input is a perfectly reverse sorted input, shifting may be required for every element in a subarray, leading to $O(n)$ shifts per merge. Across all merge levels, this results in $O(n^2)$ time.
 
 $O(n^2)$
 
+
+However, in the average case, such excessive shifting is not common. Most merges only require a small number of shifts, so the average runtime remains $O(n*log(n))$, but still slower than traditional merge sort due to in-place overhead.
+
+$O(n*log(n))$
 
 Overall:
 
