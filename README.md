@@ -31,18 +31,17 @@ Shifting Overhead: If worst case where input is a perfectly reverse sorted input
 
 $O(n^2)$
 
+However, in the average case not every element will need to be shifted during a merge. Shifting still occurs frequently enough that each merge pass can take up to $O(n)$ time, and since there are $O(log(n))$ merge "levels", this results in a total average time of:
 
-However, in the average case, such excessive shifting is not common. Most merges only require a small number of shifts, so the average runtime remains $O(n*log(n))$, but still slower than traditional merge sort due to in-place overhead.
-
-$O(n*log(n))$
+$O(n^2 * log(n))$
 
 Overall:
 
 Best case (already sorted input): $\Theta(n*log(n))$
 
-Average case (slower than normal merge sort because of in-place overhead): $O(n*log (n))$
+Average case (in-place shifting overhead compounded : $O(n^2 * log (n))$
 
-Worst case (reverse sorted input): $O(n^2)$
+Worst case (reverse sorted input): $O(n^2 * log(n))$
 
 Space Complexity: $O(1)$ since in place
 
